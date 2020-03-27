@@ -1,3 +1,6 @@
 [submodule "SharpHound3"]
 	path = SharpHound3
 	url = https://github.com/BloodHoundAD/SharpHound3.git
+[submodule "Rubeus"]
+	path = Rubeus
+	url = https://github.com/GhostPack/Rubeus.git
