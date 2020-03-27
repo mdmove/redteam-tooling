@@ -30,6 +30,9 @@ jobs:
       - name: Setup Nuget.exe
         uses: warrenbuckley/Setup-Nuget@v1
 
+      #####
+      # SharpHound3
+      #####
       - name: Nuget Restore
         run: nuget restore $Env:GITHUB_WORKSPACE\SharpHound3\SharpHound3.sln
         
@@ -48,3 +51,19 @@ jobs:
         with:
           name: SharpHound3
           path: SharpHound3\SharpHound3\bin\Release\SharpHound.exe
+      
+      #####
+      # Rubeus
+      #####
+      - name: Nuget Restore
+        run: nuget restore $Env:GITHUB_WORKSPACE\SharpHound3\SharpHound3.sln
+        
+      - name: Build Rubeus
+        run: |
+          cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
+          .\MSBuild.exe $Env:GITHUB_WORKSPACE\Rubeus\Rubeus\Rubeus.csproj /property:Configuration=Release
+      
+      - uses: actions/upload-artifact@master
+        with:
+          name: Rubeus
+          path: Rubeus\Rebeus\bin\Release\Rubeus.exe
