@@ -67,3 +67,19 @@ jobs:
         with:
           name: Rubeus
           path: Rubeus\Rubeus\bin\Release\Rubeus.exe
+          
+      #####
+      # SafetyKatz
+      #####
+      - name: Nuget Restore
+        run: nuget restore $Env:GITHUB_WORKSPACE\SafetyKatz\SafetyKatz.sln
+        
+      - name: Build SafetyKatz
+        run: |
+          cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
+          .\MSBuild.exe $Env:GITHUB_WORKSPACE\SafetyKatz\SafetyKatz\Rubeus.csproj /property:Configuration=Release
+      
+      - uses: actions/upload-artifact@master
+        with:
+          name: SafetyKatz
+          path: SafetyKatz\SafetyKatz\bin\Release\SafetyKatz.exe
