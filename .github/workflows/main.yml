@@ -83,3 +83,68 @@ jobs:
         with:
           name: SafetyKatz
           path: SafetyKatz\SafetyKatz\bin\Release\SafetyKatz.exe
+          
+      #####
+      # Seatbelt
+      #####
+      - name: Nuget Restore
+        run: nuget restore $Env:GITHUB_WORKSPACE\Seatbelt\Seatbelt.sln
+        
+      - name: Build Seatbelt
+        run: |
+          cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
+          .\MSBuild.exe $Env:GITHUB_WORKSPACE\Seatbelt\Seatbelt\Seatbelt.csproj /property:Configuration=Release
+      
+      - uses: actions/upload-artifact@master
+        with:
+          name: Seatbelt
+          path: Seatbelt\Seatbelt\bin\Release\Seatbelt.exe
+          
+      #####
+      # SharpBlock
+      #####
+      - name: Nuget Restore
+        run: nuget restore $Env:GITHUB_WORKSPACE\SharpBlock\SharpBlock.sln
+        
+      - name: Build SharpBlock
+        run: |
+          cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
+          .\MSBuild.exe $Env:GITHUB_WORKSPACE\SharpBlock\SharpBlock.csproj /property:Configuration=Release
+      
+      - uses: actions/upload-artifact@master
+        with:
+          name: SharpBlock
+          path: SharpBlock\bin\Release\SharpBlock.exe
+          
+      #####
+      # SharpDump
+      #####
+      - name: Nuget Restore
+        run: nuget restore $Env:GITHUB_WORKSPACE\SharpDump\SharpDump.sln
+        
+      - name: Build SharpDump
+        run: |
+          cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
+          .\MSBuild.exe $Env:GITHUB_WORKSPACE\SharpDump\SharpDump\SharpDump.csproj /property:Configuration=Release
+      
+      - uses: actions/upload-artifact@master
+        with:
+          name: SharpDump
+          path: SharpDump\SharpDump\bin\Release\SharpDump.exe
+          
+          
+      #####
+      # SharpUp
+      #####
+      - name: Nuget Restore
+        run: nuget restore $Env:GITHUB_WORKSPACE\SharpUp\SharpUp.sln
+        
+      - name: Build SharpUp
+        run: |
+          cd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\"
+          .\MSBuild.exe $Env:GITHUB_WORKSPACE\SharpUp\SharpUp\SharpUp.csproj /property:Configuration=Release
+      
+      - uses: actions/upload-artifact@master
+        with:
+          name: SharpUp
+          path: SharpUp\SharpUp\bin\Release\SharpUp.exe
