@@ -4,3 +4,6 @@
 [submodule "Rubeus"]
 	path = Rubeus
 	url = https://github.com/GhostPack/Rubeus.git
+[submodule "SafetyKatz"]
+	path = SafetyKatz
+	url = https://github.com/GhostPack/SafetyKatz
