@@ -7,3 +7,15 @@
 [submodule "SafetyKatz"]
 	path = SafetyKatz
 	url = https://github.com/GhostPack/SafetyKatz
+[submodule "SharpUp"]
+	path = SharpUp
+	url = https://github.com/GhostPack/SharpUp
+[submodule "SharpBlock"]
+	path = SharpBlock
+	url = https://github.com/CCob/SharpBlock
+[submodule "SharpDump"]
+	path = SharpDump
+	url = https://github.com/GhostPack/SharpDump
+[submodule "Seatbelt"]
+	path = Seatbelt
+	url = https://github.com/GhostPack/Seatbelt
